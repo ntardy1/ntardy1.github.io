@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<title>Reminders</title>
+<body id="body">
+    <style>
+        #body {
+            background-color: rgb(12, 44, 150);
+            font-family: Calibri, Sans-Serif;
+            color: rgb(21, 228, 21);
+            text-align: center;
+        }
+        #mainHeader {
+            color: rgb(21, 228, 21);
+        }
+        .one {
+            text-align: center;
+            font-size: 15px;  
+        }
+        .two {
+            font-size: 30px;
+        }
+        #instructions {
+            display: none;
+        }
+    </style>
+    <div class="one">
+        <h1 id="mainHeader">Buzzer Website</h1>
+        <button id="resetButton" onclick="resetHandler()">Reset</button>
+        <div class="two">
+            <h2 id='Player1'>Player 1: </h2>
+            <h3 id="player1Score">Score: </h3>
+            <input type='text' id='player1Name' oninput="newName()"></input>
+            <h2 id="Player2">Player 2: </h2>
+            <h3 id="player2Score">Score: </h3>
+            <input type='text' id='player2Name' oninput="newName()"></input>
+            <h2></h2>
+            <button id="showInstructions" onclick="instructions()">Show Instructions</button>
+            <p id="instructions"> <br>
+                Enter: A buzzer that turns the screen white<br>
+                Space: A buzzer that turns the screen orange<br>
+                Up-Arrow: Increases player 1's score by 10<br>
+                Down-Arrow: Decreases player 1's score by 10<br>
+                Right-Arrow: Increases player 1's score by 5<br>
+                Left-Arrow: Decreases player 1's score by 5<br>
+                W: Increases player 2's score by 10<br>
+                S: Decreases player 2's score by 10<br>
+                D: Increases player 2's score by 5<br>
+                A: Decreases player 2's score by 5<br>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var player1Score = 0;
+        var player2Score = 0;
+        var orangeScreen = 'rgb(255, 207, 47)';
+        var whiteScreen = 'rgb(255,255,255)';
+        document.addEventListener('keyup', function(event) {
+            if (event.key == 'Enter') {
+                document.getElementById('body').style.backgroundColor = whiteScreen;
+                setTimeout(resetScreen, 1000);
+            } else if (event.code == 'Space'){
+                document.getElementById('body').style.backgroundColor = orangeScreen;
+                setTimeout(resetScreen, 1000);
+            }
+        });
+        
+        function whiteScreenSet(){
+            document.getElementById('body').style.backgroundColor = whiteScreen;
+        }
+        function orangeScreenSet(){
+            document.getElementById('body').style.backgroundColor = orangeScreen;
+        }
+        function resetScreen(){
+            var restingScreenColor = 'rgb(12,44,150)';
+            document.getElementById('body').style.backgroundColor = restingScreenColor;
+        }
+        function newName(){
+            var name1 = document.getElementById('player1Name').value;
+            document.getElementById('Player1').innerHTML = ("Player 1: " + name1);
+            var name2 = document.getElementById('player2Name').value;
+            document.getElementById('Player2').innerHTML = ("Player 2: " + name2);
+        }
+        function resetHandler(){
+            player1Score = 0;
+            player2Score = 0;
+            document.getElementById('player1Score').innerHTML = ("Score: " + player1Score);
+            document.getElementById('player2Score').innerHTML = ("Score: " + player2Score);
+        }
+        function instructions(){
+            var instructions = document.getElementById('instructions');
+            var button = document.getElementById('showInstructions');
+            if (instructions.style.display == "contents"){
+                button.innerHTML = "Show Instructions";
+                instructions.style.display = "none";
+            } else {
+                button.innerHTML = "Hide Instructions";
+                instructions.style.display = "contents";
+            }
+        }
+        document.addEventListener('keyup', function(event){
+                if (event.key === 'ArrowUp'){
+                    player1Score += 10;
+                    document.getElementById('player1Score').innerHTML = ("Score: " + player1Score);
+                } else if (event.key === 'ArrowDown'){
+                    player1Score -= 10;
+                    document.getElementById('player1Score').innerHTML = ("Score: " + player1Score);
+                } else if (event.key === 'ArrowRight'){
+                    player1Score += 5;
+                    document.getElementById('player1Score').innerHTML = ("Score: " + player1Score);
+                } else if (event.key === 'ArrowLeft'){
+                    player1Score -= 5;
+                    document.getElementById('player1Score').innerHTML = ("Score: " + player1Score);
+                } else if (event.key === 'w'){
+                    player2Score += 10;
+                    document.getElementById('player2Score').innerHTML = ("Score: " + player2Score);
+                } else if (event.key === 's'){
+                    player2Score -= 10;
+                    document.getElementById('player2Score').innerHTML = ("Score: " + player2Score);
+                } else if (event.key === 'd'){
+                    player2Score += 5;
+                    document.getElementById('player2Score').innerHTML = ("Score: " + player2Score);
+                } else if (event.key === 'a'){
+                    player2Score -= 5;
+                    document.getElementById('player2Score').innerHTML = ("Score: " + player2Score);
+                }
+            });
+    </script>
+</body>
+</html>
