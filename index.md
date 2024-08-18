@@ -37,6 +37,11 @@ Highly driven, detail-oriented, goal-focused individual with experience with sof
 - Documented process and results in a **LaTeX** report. [Published in AIAA ARC](https://doi.org/10.2514/6.2024-80134).
 - Presented results and future work at the 2024 AIAA Region II Student Conference.
 
+## Assorted Software Projects: [GitHub](https://github.com/ntardy1)
+- Wrote a [C++ algorithm to solve sudoku puzzles](https://github.com/ntardy1/Games/blob/main/sudoSolve.cpp) and display the solution.
+- Crafted a [Python application to play BlackJack](https://github.com/ntardy1/Games/blob/main/CasinoGames/blackjack.py) with a command-line user interface.
+- Deployed Markdown, Jekyll, and GitHub Pages to craft a personal portfolio website (this website).
+
 # Honors & Awards
 - Outstanding Student of the Year: *2023-2024*, Florida Institute of Technology
 - AIAA Outstanding Officer of the Year: *2023-2024*, Florida Institute of Technology
